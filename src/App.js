@@ -1,9 +1,8 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import uuid from "uuid";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-
 
 class App extends Component {
   state = {
@@ -31,17 +30,28 @@ class App extends Component {
     console.log(`edit edit ${id}`);
   };
 
-  render () {
-  return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <TodoInput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit} editItem={this.editItem} />
-          <TodoList item={this.state.items} clearList={this.clearList} handleDelete={this.handleDelete} handleEdit={this.handleEdit} />
+  render() {
+    return (
+      <div>
+        <div className="container">
+          <div className="row">
+            <TodoInput
+              item={this.state.item}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              editItem={this.editItem}
+            />
+            <TodoList
+              item={this.state.items}
+              clearList={this.clearList}
+              handleDelete={this.handleDelete}
+              handleEdit={this.handleEdit}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
