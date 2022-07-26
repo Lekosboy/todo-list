@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-
+// hello world
 export default class TodoInput extends Component {
   render() {
     const { item, handleChange, handleSubmit, editItem } = this.props;
     return (
       <div className="card card-body my-3">
-        <h3 className="text-capitalize text-center">Todo Input</h3>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <div className="input-group-prepend">
@@ -21,11 +20,17 @@ export default class TodoInput extends Component {
               onChange={handleChange}
             />
           </div>
-          <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary text-uppercase">
-              add item
-            </button>
-          </div>
+          <button
+            type="submit"
+            disabled={item ? false : true}
+            className={
+              editItem
+                ? "btn btn-block btn-success mt-3"
+                : "btn btn-block btn-primary mt-3 text-uppercase"
+            }
+          >
+            {editItem ? "edit item" : "add item"}
+          </button>
         </form>
       </div>
     );
